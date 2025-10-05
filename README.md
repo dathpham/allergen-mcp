@@ -5,5 +5,6 @@ This MCP server will be decorated with Langraph tool for AI agent
 
 Langgraph Tool agent is located in agent/agent.py.
 
-This repo is licenced.
+This repo has license implication
+
 
