@@ -7,15 +7,14 @@ This MCP server will be decorated with Langraph tool for AI agent
 
 ```mermaid
 graph TD;
-    Start-->ReAct Agent;
-    ReAct Agent-->Tool;
+    Start-->ReActAgent;
+    ReActAgent-->Tool;
     Tool-->MCP Server;
-    MCP Server-->|RAG|Supabase PostgreSQL Vector Store;
-    Supabase PostgreSQL Vector Store-->MCP Server
-    MCP Server-->Tool
+    MCP Server-->|RAG|Supabase_PostgreSQL_Vector_Store;
+    Supabase_PostgreSQL_Vector_Store-->MCP_Server
+    MCP_Server-->Tool
     Tool-->Agent
-    Agent-->Structured Return
-    Structured Return-->End
+    Agent-->|Structured_Return|End
 ```
 
 ## Features
