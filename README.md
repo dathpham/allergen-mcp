@@ -9,12 +9,12 @@ This MCP server will be decorated with Langraph tool for AI agent
 graph TD;
     Start-->ReActAgent;
     ReActAgent-->Tool;
-    Tool-->MCP Server;
-    MCP Server-->|RAG|Supabase_PostgreSQL_Vector_Store;
+    Tool-->MCP_Server;
+    MCP_Server-->|RAG|Supabase_PostgreSQL_Vector_Store;
     Supabase_PostgreSQL_Vector_Store-->MCP_Server
     MCP_Server-->Tool
-    Tool-->Agent
-    Agent-->|Structured_Return|End
+    Tool-->ReActAgent
+    ReActAgent-->|Structured_Return|End
 ```
 
 ## Features
