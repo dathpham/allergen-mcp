@@ -6,27 +6,22 @@ This MCP server will be decorated with Langraph tool for AI agent
 ## System Architecture
 
 ```mermaid
-graph LR
-    User([User]) --> Agent[LangGraph Agent]
-    Agent --> LLM[LLM Model]
-    Agent --> Tools[Tools]
-    
-    subgraph Tools
-        MCP[MCP Server Tool] --> Vector[(Supabase<br/>Vector Store)]
-        MCP -->|allergen_tool| Search[Search Allergen]
-        RAG[RAG Tool] --> Vector
-    end
-
-    LLM --> Tools
-    Tools --> Agent
-    Agent --> User
+graph TD;
+    Start-->ReAct Agent;
+    ReAct Agent-->Tool;
+    Tool-->MCP Server;
+    MCP Server-->|RAG|Supabase PostgreSQL Vector Store;
+    Supabase PostgreSQL Vector Store-->MCP Server
+    MCP Server-->Tool
+    Tool-->Agent
+    Agent-->Structured Return
+    Structured Return-->End
 ```
 
 ## Features
 - LangGraph Agent with ReAct reasoning
 - MCP Server integration for allergen lookup
 - RAG implementation with Supabase vector store
-- Support for multiple LLM providers (OpenAI, Anthropic)
 
 ## Components
 - **LangGraph Agent**: Orchestrates interactions between tools and LLM
